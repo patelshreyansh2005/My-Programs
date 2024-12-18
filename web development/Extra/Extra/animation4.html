@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ani4</title>
+    <style>
+        :root {
+            --div1width: 200px;
+            --div1height: 200px;
+            --div2width: 100px;
+            --div2height: 100px;
+            --div3height: 50px;
+            --div3width: 50px;
+            --div4height: 25px;
+            --div4width: 25px;
+            --ani1time: 10s;
+            --ani2time: 100s;
+        }
+
+        .div1 {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: var(--div1height);
+            width: var(--div1width);
+            animation: ani1 var(--ani1time) infinite;
+            animation-timing-function: linear;
+            background-color: chartreuse;
+            z-index: 1;
+        }
+
+        .div2 {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: var(--div2height);
+            width: var(--div2width);
+            animation: ani1 var(--ani1time) infinite;
+            animation-timing-function: linear;
+            background-color: chartreuse;
+            z-index: 2;
+        }
+
+        .div3{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: var(--div3height);
+            width: var(--div3width);
+            animation: ani1 var(--ani1time) infinite;
+            animation-timing-function: linear;
+            background-color: chartreuse;
+            z-index: 3;   
+        }
+
+        .div4{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: var(--div4height);
+            width: var(--div4width);
+            animation: ani1 var(--ani1time) infinite;
+            animation-timing-function: linear;
+            background-color: chartreuse;
+            z-index: 4;
+        }
+
+        @keyframes ani1 {
+            0% {
+                top: 5%;
+                left: 5%;
+                filter: hue-rotate(0deg);
+                transform: rotate(0deg);
+
+            }
+
+            25% {
+                top: 5%;
+                left: calc(95% - var(--div1width));
+
+            }
+
+            50% {
+                top: calc(95% - var(--div1height));
+                left: calc(95% - var(--div1width));
+            }
+
+            75% {
+                top: calc(95% - var(--div1height));
+                left: 5%;
+            }
+
+            100% {
+                top: 5%;
+                left: 5%;
+                filter: hue-rotate(1000deg);
+                transform: rotate(1000deg);
+            }
+        }
+        /*  */
+        /*  */
+        /*  */
+        /*  */
+        @keyframes ani2 {
+            0% {
+                top: 5%;
+                left: 5%;
+                filter: hue-rotate(0deg);
+                transform: rotate(0deg);
+
+            }
+
+            25% {
+                top: 5%;
+                left: calc(95% - var(--div1width));
+
+            }
+
+            50% {
+                top: calc(95% - var(--div1height));
+                left: calc(95% - var(--div1width));
+            }
+
+            75% {
+                top: calc(95% - var(--div1height));
+                left: 5%;
+            }
+
+            100% {
+                top: 5%;
+                left: 5%;
+                filter: hue-rotate(1000deg);
+                transform: rotate(-1000deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="div2">
+            <div class="div3">
+                <div class="div4">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

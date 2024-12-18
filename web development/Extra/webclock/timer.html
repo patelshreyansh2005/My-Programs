@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        * {
+            box-sizing: border-box !important;
+            transition: all;
+            transition-duration: 0.5s;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            appearance: textfield;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .example::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .example {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        body {
+            background-image: url("./images/2.jpg");
+            height: 97vh;
+            width: 98vw;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all;
+            transition-duration: 1s;
+            flex-direction: column;
+            animation: ani2 4000ms linear infinite;
+            overflow: hidden;
+        }
+
+        #bodydiv {
+            height: 97vh;
+            width: 98vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main {
+            height: 60vh;
+            background-color: rgba(0, 0, 0, 0.65);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .input {
+            margin-bottom: 30px;
+            margin: 30px;
+        }
+
+        .start {
+            width: 150px;
+            height: 75px;
+            font-size: 30px;
+            color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(0, 0, 0, 0);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .start:hover {
+            background-color: transparent;
+            color: rgb(255, 255, 255);
+            border: 2px solid rgb(255, 255, 255);
+            transform: scale(1.05);
+        }
+
+        .timeinput {
+            width: 300px;
+            height: 150px;
+            font-size: 80px;
+            text-align: center;
+            color: white;
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.408);
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .timeinput:hover {
+            border-color: white;
+        }
+
+        .timeupdiv {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+            height: 60vh;
+            width: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 200px;
+            animation: timeupani 2s infinite linear;
+        }
+
+        #hour {
+            animation: hourani 2s 1 ease-out;
+        }
+
+        @keyframes hourani {
+            0% {
+                left: -1000px;
+            }
+
+            100% {
+                left: 0px;
+            }
+        }
+
+        #minute {
+            animation: minuteani 2s 1 ease-out;
+        }
+
+        @keyframes minuteani {
+            0% {
+                top: -1000px;
+            }
+
+            100% {
+                top: 0px;
+            }
+        }
+
+        #second {
+            animation: secondani 2s 1 ease-out;
+        }
+
+        @keyframes secondani {
+            0% {
+                right: -1000px;
+            }
+
+            100% {
+                right: 0px;
+            }
+        }
+
+        #start {
+            position: relative;
+            animation: startani 2s 1 ease-out;
+        }
+
+        @keyframes startani {
+            0% {
+                bottom: -1000px;
+            }
+
+            100% {
+                bottom: 0px;
+            }
+        }
+
+        @keyframes timeupani {
+            0% {
+                color: white;
+                transform: scale(1);
+            }
+
+            25% {
+                color: rgb(0, 255, 255);
+            }
+
+            50% {
+                color: rgb(255, 0, 255);
+                transform: scale(1.50);
+            }
+
+            75% {
+                color: rgb(255, 255, 0);
+            }
+
+            100% {
+                color: white;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes ani2 {
+            0% {
+                backdrop-filter: hue-rotate(0deg);
+            }
+
+            100% {
+                backdrop-filter: hue-rotate(360deg);
+            }
+
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="timeupdiv" id="timeupdiv">Time Up</div>
+    <div id="bodydiv">
+        <div class="main" id="main">
+            <div class="input">
+                <input type="number" placeholder="Hour" min="0" name="hour" class="hour timeinput" id="hour">
+                <input type="number" placeholder="minute" min="0" name="minute" class="minute timeinput" id="minute">
+                <input type="number" placeholder="second" min="0" name="second" class="second timeinput" id="second">
+            </div>
+            <input type="button" value="START" name="start" class="start" id="start" onclick="startTimer()">
+        </div>
+    </div>
+    <audio src="./music/timeup.mp3" id="timeupaudio"></audio>
+    <audio src="./music/countdown.mp3" id="countdownaudio"></audio>
+
+</body>
+
+<script>
+
+    let timeupaudio = document.getElementById("timeupaudio");
+    let countdownaudio = document.getElementById("countdownaudio");
+    let start = document.getElementById("start");
+    let flag = true;
+
+    i = 1;
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            startTimer();
+        }
+    });
+
+    function startTimer() {
+
+        second = document.getElementById("second");
+        minute = document.getElementById("minute");
+        hour = document.getElementById("hour");
+
+        if (second.value == "") {
+            second.value = 0;
+        }
+        if (minute.value == "") {
+            minute.value = 0;
+        }
+        if (hour.value == "") {
+            hour.value = 0;
+        }
+
+        if (second.value > 59) {
+            console.log("-------------");
+            minute.value = parseInt(second.value / 60);
+            second.value = second.value % 60;
+            hour.value = parseInt(minute.value / 60);
+            minute.value = minute.value % 60;
+            console.log(hour.value + " : " + minute.value + " : " + second.value);
+        }
+        if (minute.value > 59) {
+            hour.value = parseInt(minute.value / 60);
+            minute.value = minute.value % 60;
+        }
+        console.log(hour.value + " : " + minute.value + " : " + second.value);
+        c = setInterval(CountDown, 1000);
+    }
+
+    function afterani() {
+        let main = document.getElementById("main");
+        let timeupdiv = document.getElementById("timeupdiv");
+        second.value = 0;
+        minute.value = 0;
+        hour.value = 0;
+        timeupdiv.style.opacity = 0;6
+        main.style.opacity = 1;
+        clearTimeout(a);
+    }
+
+    function CountDown() {
+        if (second.value <= 1 && minute.value < 1 && hour.value < 1) {
+            // console.log("================Time Up================");
+            clearInterval(c);
+            timeupaudio.play();
+            let main = document.getElementById("main");
+            let timeupdiv = document.getElementById("timeupdiv");
+            main.style.opacity = 0;
+            timeupdiv.style.opacity = 1;
+            let body = document.getElementById("body");
+            a = setTimeout(afterani, 3000);
+        }
+
+        if (second.value < 1) {
+            if (hour.value > 0) {
+                minute.value = 60;
+                (hour.value)--;
+            }
+            if (minute.value > 0) {
+                second.value = 60;
+                (minute.value)--;
+            }
+        }
+        second.value = second.value - 1;
+    }
+
+</script>
+
+</html>

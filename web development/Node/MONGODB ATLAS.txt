@@ -1,0 +1,4 @@
+username : shrey2005
+password : MIrNvVHbTWDqdww6
+
+mongodb+srv://shrey2005:<password>@cluster0.2xfp9zm.mongodb.net/?retryWrites=true&w=majority

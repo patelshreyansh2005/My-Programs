@@ -1,0 +1,56 @@
+﻿@using System.Data
+@model DataTable
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Bill List</h5>
+                    <div class="d-flex justify-content-end gap-3">
+                        <a class="btn btn-primary" asp-controller="Bill" asp-action="AddBill">Add Bill</a>
+                        <a class="btn btn-primary" asp-controller="Bill" asp-action="ExportExcel">Export Excel</a>
+                    </div>
+
+
+                    <!-- Table with stripped rows -->
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th>BillID</th>
+                                <th>BillNumber</th>
+                                <th>BillDate</th>
+                                <th>OrderID</th>
+                                <th>TotalAmount</th>
+                                <th>Discount</th>
+                                <th>NetAmount</th>
+                                <th>UserName</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (DataRow Bill in Model.Rows)
+                            {
+                                <tr>
+                                    <td>@Bill["BillID"]</td>
+                                    <td>@Bill["BillNumber"]</td>
+                                    <td>@Bill["BillDate"]</td>
+                                    <td>@Bill["OrderID"]</td>
+                                    <td>@Bill["TotalAmount"]</td>
+                                    <td>@Bill["Discount"]</td>
+                                    <td>@Bill["NetAmount"]</td>
+                                    <td>@Bill["UserName"]</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-warning" asp-action="EditBill" asp-controller="Bill" asp-route-BillID="@Bill["BillID"]">Edit</a>
+                                        <a class="btn btn-sm btn-danger" asp-action="BillDelete" asp-controller="Bill" asp-route-BillID="@Bill["BillID"]">Delete</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

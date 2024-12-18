@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL-DEMO</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            height: 98vh;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+        }
+
+        .main-div {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+        }
+
+        .button {
+            height: 30px;
+            /* width: 100px; */
+            text-align: center;
+            padding: 4px 0 5px 0;
+            color: aliceblue;
+            background-image: repeating-linear-gradient(rgb(0, 255, 255), rgb(0, 0, 255));
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        .button:hover {
+            transform: scale(1.2);
+            border: 2px solid whitesmoke;
+            cursor: pointer;
+        }
+
+        #Line_Animation_span {
+            height: 1px;
+            width: 1px;
+            border-bottom: 5px dotted cyan;
+            color: aliceblue;
+        }
+        @keyframes lineani {
+            0%{
+                transform: rotateZ(0deg);
+            }
+            100%{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+
+
+</head>
+
+<body id="body">
+    <div class="main-div">
+        <div class="div1 button" id="gradient">gradient</div>
+        <div class="div2 button" id="Line_Animation">Line Animation</div>
+        <div class="div3 button"></div>
+    </div>
+
+    <div class="othermain">
+        <span id="Line_Animation_span">&nbsp;</span>
+    </div>
+
+
+
+
+    <!-- JAVA SCRIPT starts here -->
+
+    <script>
+        let gradient = document.getElementById("gradient");
+        let line_Animation = document.getElementById("Line_Animation");
+        let a=false;
+        let b=false;
+
+        gradient.addEventListener("click", () => {
+            a=!a;
+            if(a){
+                document.getElementById("body").setAttribute("style", "background-image: linear-gradient(rgb(0, 255, 255), rgb(0 , 0, 255));");
+            }
+            else{
+                document.getElementById("body").removeAttribute("style", "background-image: linear-gradient(rgb(0, 255, 255), rgb(0 , 0, 255));");
+            }
+
+        })
+        line_Animation.addEventListener("click", () => {
+            b=!b;
+            if(b){
+                document.getElementById("body").setAttribute("style", "animation-name:lineani;");
+            }
+            else{
+                document.getElementById("body").removeAttribute("style", "animation-name:lineani;");
+            }
+
+        })
+        // gradient.addEventListener("click",()=>{
+        //     document.getElementById("body").setAttribute("style","background-image: linear-gradient(rgb(0, 255, 255), rgb(0 , 0, 255));");
+        // })
+    </script>
+</body>
+
+</html>
+
+

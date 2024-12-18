@@ -1,0 +1,18 @@
+<input class="form-control m-2 w-50 d-inline" type="text" [(ngModel)]="tempFaculty.name" />
+<input class="form-control m-2 w-50 d-inline" type="text" [(ngModel)]="tempFaculty.age" />
+<input class="form-control m-2 w-50 d-inline" type="text" [(ngModel)]="tempFaculty.salary" />
+<button class="btn btn-primary" (click)="addFaculty()" *ngIf="index == -1">Add</button>
+<button class="btn btn-warning" (click)="editFaculty()" *ngIf="index > -1">Edit</button>
+<table class="">
+    <tr *ngFor="let f of faculties;let i = index">
+        <td>{{f.name}}</td>
+        <td>{{f.age}}</td>
+        <td>{{f.salary}}</td>
+        <td>
+            <button class="btn btn-warning" (click)="editButton(i)">Edit</button>
+        </td>
+        <td>
+            <button class="btn btn-danger" (click)="deleteButton(i)">Delete</button>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,5 @@
+aa = open('abcxyz.data','rb')
+a = aa.read()
+print(a)
+aa.close()
+input("")

@@ -1,0 +1,58 @@
+﻿@model DataTable;
+@using System.Data;
+
+
+<div class="card">
+    <div class="card-body">
+        <table>
+            <tr>
+                <td><h5 class="card-title">Bills Table</h5></td>
+                <td>
+                    <div class="ps-5">
+                        <a asp-controller="Bills" asp-action="Bills_Form"><button type="button" class="btn btn-success">Add</button></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Default Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Bill ID</th>
+                    <th scope="col">Bill Number</th>
+                    <th scope="col">Bill Date</th>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Net Amount</th>
+                    <th scope="col">User Name</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (DataRow bill in Model.Rows)
+                {
+                    <tr>
+                        <th scope="row">@bill["BillID"]</th>
+                        <td>@bill["BillNumber"]</td>
+                        <td>@bill["BillDate"]</td>
+                        <td>@bill["OrderID"]</td>
+                        <td>@bill["TotalAmount"]</td>
+                        <td>@bill["Discount"]</td>
+                        <td>@bill["NetAmount"]</td>
+                        <td>
+                            <a asp-controller="Bills" asp-action="Bills_Form"><button type="button" class="btn btn-primary">Edit</button></a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+        <!-- End Default Table Example -->
+    </div>
+</div>

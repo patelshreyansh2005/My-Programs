@@ -1,0 +1,14 @@
+<input type="text" [(ngModel)]="tempStudent" />
+<button (click)="addStudent()" *ngIf="isAdd">Add</button>
+<button (click)="editStudent()" *ngIf="!isAdd">Edit</button>
+<table>
+    <tr *ngFor="let s of students;let i = index">
+        <td>{{s}}</td>
+        <td>
+            <button (click)="editButton(i)">Edit</button>
+        </td>
+        <td>
+            <button (click)="deleteButton(i)">Delete</button>
+        </td>
+    </tr>
+</table>

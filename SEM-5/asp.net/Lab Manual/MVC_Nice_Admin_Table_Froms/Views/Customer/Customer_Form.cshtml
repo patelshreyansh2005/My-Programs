@@ -1,0 +1,86 @@
+﻿@model CustomerModel
+<form>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row mb-3">
+        <input type="hidden" asp-for="CustomerID" />
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Customer Name</label>
+        <div class="col-sm-10">
+            <input type="datetime" class="form-control" id="inputText" asp-for="CustomerName">
+            <span asp-validation-for="CustomerName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Home Address</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="HomeAddress">
+            <span asp-validation-for="HomeAddress" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Mobile Number</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="MobileNo">
+            <span asp-validation-for="MobileNo" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">GST No</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="GSTNo">
+            <span asp-validation-for="GSTNo" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">City Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="CityName">
+            <span asp-validation-for="CityName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Pin Code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="PinCode">
+            <span asp-validation-for="PinCode" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Net Amount</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="NetAmount">
+            <span asp-validation-for="NetAmount" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">User ID</label>
+        <div class="col-sm-10">
+            <div class="col-sm-10">
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" asp-for="UserID">
+                    <option selected>Select User</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <!--<input type="text" class="form-control" id="inputText">-->
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary" asp-action="CustomerSave">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

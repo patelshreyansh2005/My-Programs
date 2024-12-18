@@ -1,0 +1,57 @@
+﻿@model DataTable;
+@using System.Data;
+
+
+<div class="card">
+    <div class="card-body">
+        <table>
+            <tr>
+                <td><h5 class="card-title">OrderDetail Table</h5></td>
+                <td>
+                    <div class="ps-5">
+                        <a asp-controller="OrderDetail" asp-action="OrderDetail_Form"><button type="button" class="btn btn-success">Add</button></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Default Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">OrderDetail ID</th>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">User Name</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (DataRow orderdetail in Model.Rows)
+                {
+                    <tr>
+                        <th scope="row">@orderdetail["OrderDetailID"]</th>
+                        <td>@orderdetail["OrderID"]</td>
+                        <td>@orderdetail["ProductName"]</td>
+                        <td>@orderdetail["Quantity"]</td>
+                        <td>@orderdetail["Amount"]</td>
+                        <td>@orderdetail["TotalAmount"]</td>
+                        <td>@orderdetail["UserName"]</td>
+                        <td>
+                            <a asp-controller="OrderDetail" asp-action="OrderDetail_Form"><button type="button" class="btn btn-primary">Edit</button></a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+        <!-- End Default Table Example -->
+    </div>
+</div>

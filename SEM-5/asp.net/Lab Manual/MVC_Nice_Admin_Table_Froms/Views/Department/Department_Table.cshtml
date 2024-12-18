@@ -1,0 +1,57 @@
+﻿<div class="card">
+    <div class="card-body">
+        <table>
+            <tr>
+                <td><h5 class="card-title">Department Table</h5></td>
+                <td>
+                    <div class="ps-5">
+                        <a asp-controller="Department" asp-action="Department_Form"><button type="button" class="btn btn-success">Add</button></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Default Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Department ID</th>
+                    <th scope="col">Department Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>HR</td>
+                    <td>
+                        <a asp-controller="Department" asp-action="Department_Form"><button type="button" class="btn btn-primary">Edit</button></a>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Manager</td>
+                    <td>
+                        <a asp-controller="Department" asp-action="Department_Form"><button type="button" class="btn btn-primary">Edit</button></a>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Finance</td>
+                    <td>
+                        <a asp-controller="Department" asp-action="Department_Form"><button type="button" class="btn btn-primary">Edit</button></a>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- End Default Table Example -->
+    </div>
+</div>

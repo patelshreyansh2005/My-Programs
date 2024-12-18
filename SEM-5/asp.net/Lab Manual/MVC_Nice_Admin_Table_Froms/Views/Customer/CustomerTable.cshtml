@@ -1,0 +1,63 @@
+﻿@model DataTable;
+@using System.Data;
+
+
+<div class="card">
+    <div class="card-body">
+        <table>
+            <tr>
+                <td><h5 class="card-title">Customer Table</h5></td>
+                <td>
+                    <div class="ps-5">
+                        <a asp-controller="Customer" asp-action="Customer_Form"><button type="button" class="btn btn-success">Add</button></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Default Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Home Address</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile No</th>
+                    <th scope="col">GST No</th>
+                    <th scope="col">City Name</th>
+                    <th scope="col">PinCode</th>
+                    <th scope="col">Net Amount</th>
+                    <th scope="col">User Name</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (DataRow customer in Model.Rows)
+                {
+                    <tr>
+                        <th scope="row">@customer["CustomerID"]</th>
+                        <td>@customer["CustomerName"]</td>
+                        <td>@customer["HomeAddress"]</td>
+                        <td>@customer["Email"]</td>
+                        <td>@customer["MobileNo"]</td>
+                        <td>@customer["GSTNo"]</td>
+                        <td>@customer["CityName"]</td>
+                        <td>@customer["PinCode"]</td>
+                        <td>@customer["NetAmount"]</td>
+                        <td>@customer["UserName"]</td>
+                        <td>
+                            <a asp-controller="Customer" asp-action="Customer_Form"><button type="button" class="btn btn-primary">Edit</button></a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+        <!-- End Default Table Example -->
+    </div>
+</div>

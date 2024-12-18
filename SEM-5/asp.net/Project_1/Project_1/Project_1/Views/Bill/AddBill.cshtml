@@ -1,0 +1,62 @@
+﻿@model Project_1.Models.BillsModel
+@{
+    var orderList = ViewBag.OrderList as List<OrderDropDownModel>;
+    var userList = ViewBag.UserList as List<UserDropDownModel>;
+}
+
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Add Bill</h5>
+
+        <form asp-action="BillSave" method="post" class="row g-3">
+            <input type="hidden" name="BillID" asp-for="BillID" />
+
+            <div class="col-6">
+                <label asp-for="BillNumber" class="form-label"></label>
+                <input type="text" class="form-control" asp-for="BillNumber" placeholder="Enter Bill Number" />
+                <span asp-validation-for="BillNumber" class="text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="BillDate" class="form-label"></label>
+                <input type="datetime-local" class="form-control" asp-for="BillDate" placeholder="Select Bill Date" />
+                <span asp-validation-for="BillDate" class="text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="OrderID" class="form-label"></label>
+                <select class="form-select" asp-for="OrderID" asp-items="@(new SelectList(ViewBag.orderList, "OrderID", "OrderNumber"))">
+                    <option value="">Select Order</option>
+                </select>
+                <span asp-validation-for="OrderID" class="text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="UserID" class="form-label"></label>
+                <select class="form-select" asp-for="UserID" asp-items="@(new SelectList(ViewBag.userList, "UserID", "UserName"))">
+                    <option value="">Select User</option>
+                </select>
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            
+            <div class="col-6">
+                <label asp-for="Discount" class="form-label"></label>
+                <input type="number" step="0.01" class="form-control" asp-for="Discount" placeholder="Enter Discount" />
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="NetAmount" class="form-label"></label>
+                <input type="number" step="0.01" class="form-control" asp-for="NetAmount" placeholder="Enter Net Amount" />
+                <span asp-validation-for="NetAmount" class="text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="TotalAmount" class="form-label"></label>
+                <input type="number" step="0.01" class="form-control" asp-for="TotalAmount" placeholder="Enter Total Amount" />
+                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+            <div class="text-start">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation2</title>
+</head>
+
+<style>
+    div {
+        height: 200px;
+        width: 200px;
+        display: inline-block;
+    }
+
+    body {
+        margin: 0%;
+        padding: 0%;
+        background-color: black;
+    }
+
+    div:nth-child(odd) {
+        animation: odd1 2s infinite;
+        background-color: aqua;
+    }
+
+    div:nth-child(even) {
+        animation: even1 2s infinite;
+        background-color: chartreuse;
+    }
+
+    @keyframes odd1 {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(45deg);
+        }
+
+        50% {
+            transform: rotate(90deg);
+        }
+
+        75% {
+            transform: rotate(135deg);
+        }
+
+        100% {
+            transform: rotate(180deg);
+        }
+    }
+
+    @keyframes even1 {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(-45deg);
+        }
+
+        50% {
+            transform: rotate(-90deg);
+        }
+
+        75% {
+            transform: rotate(-135deg);
+        }
+
+        100% {
+            transform: rotate(-180deg);
+        }
+    }
+</style>
+
+
+<body>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+    <div class="a b"></div>
+</body>
+
+</html>

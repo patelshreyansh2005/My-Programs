@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Calculator</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="icon" type="image/x-icon"
+        href="https://cdn2.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/Calculator_512.png">
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5vh;
+        padding: 0;
+        background-color: rgb(0, 0, 71);
+    }
+
+    .num {
+        display: grid;
+        gap: 2vh 2vh;
+        grid-template-columns: 15vh 15vh 15vh 15vh;
+        background-color: rgb(0, 0, 71);
+    }
+
+    .num div {
+        background-color: rgba(0, 0, 0, 0.392);
+        border: 1px solid rgba(0, 0, 0, 0);
+        padding: 2vh;
+        font-size: 5vh;
+        text-align: center;
+        border-radius: 4vh;
+        color: #ff6a00;
+        display: inline-block;
+        width: 10vh;
+    }
+
+    .ansdiv {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 15;
+        background-color: rgba(0, 0, 0, 0.392);
+        border: 1px solid rgba(0, 0, 0, 0);
+        padding: 1vh;
+        font-size: 6vh;
+        text-align: center;
+        border-radius: 4vh;
+        color: #ff6a00;
+        display: inline-block;
+        width: 64vh;
+    }
+
+    .acdiv {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+
+    .num div:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 1px solid #ff6a00;
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+    @media only screen and ((max-width: 426px) and (min-width:100px)) {
+        .ansdiv {
+            width: 293px;
+            height: 100px;
+        }
+
+        .num {
+            gap: 2px 2px;
+            grid-template-columns: 75px 75px 75px 75px;
+        }
+
+        .num div {
+            width: 40px;
+            padding: 15px;
+        }
+
+    }
+</style>
+
+<body>
+    <div>
+        <div class="num">
+            <input type="text" class="ansdiv">
+            <div class="button">(</div>
+            <div class="button">)</div>
+            <div class="acdiv button">AC</div>
+            <div class="button">7</div>
+            <div class="button">8</div>
+            <div class="button">9</div>
+            <div class="button">/</div>
+            <div class="button">4</div>
+            <div class="button">5</div>
+            <div class="button">6</div>
+            <div class="button">*</div>
+            <div class="button">1</div>
+            <div class="button">2</div>
+            <div class="button">3</div>
+            <div class="button">-</div>
+            <div class="button">0</div>
+            <div class="button">.</div>
+            <div class="button">=</div>
+            <div class="button">+</div>
+        </div>
+    </div>
+</body>
+<script>
+    let string = "";
+    let buttons = document.querySelectorAll('.button');
+    Array.from(buttons).forEach((button) => {
+        button.addEventListener('click', (e) => {
+            if (e.target.innerHTML == '=') {
+                string = eval(string);
+                document.querySelector('input').value = string;
+            }
+            else {
+                console.log(e.target);
+                string = string + e.target.innerHTML;
+                document.querySelector('input').value = string;
+            }
+            if (e.target.innerHTML == 'AC') {
+                string = '';
+                document.querySelector('input').value = string;
+            }
+        })
+    })
+</script>
+
+</html>

@@ -1,0 +1,106 @@
+﻿@using System.Data
+@model DataTable
+
+<!-- Display TempData Messages -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorAlert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="pagetitle">
+    <h1>Order Detail Page</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="index" asp-controller="Home">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a asp-action="OrderDetailList" asp-controller="OrderDetail">Order Detail Page</a></li>
+        </ol>
+    </nav>
+</div>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Order Detail List</h5>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="mb-0">OrderDetail Management</h6>
+                        <div class="d-flex justify-content-end gap-3 ">
+                            <a class="btn btn-primary" asp-controller="OrderDetail" asp-action="AddOrderDetail">Add Order Detail</a>
+                            <a class="btn btn-primary" asp-controller="OrderDetail" asp-action="ExportExcel">Export Excel</a>
+                        </div>
+                    </div>
+                    <!-- Table with ordered rows -->
+                    <table class="table table-striped mt-3">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>OrderDetailID</th>
+                                <th>OrderID</th>
+                                <th>ProductName</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                                <th>Total Amount</th>
+                                <th>UserName</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (DataRow OrderDetail in Model.Rows)
+                            {
+                                <tr>
+                                    <td>@OrderDetail["OrderDetailID"]</td>
+                                    <td>@OrderDetail["OrderID"]</td>
+                                    <td>@OrderDetail["ProductName"]</td>
+                                    <td>@OrderDetail["Quantity"]</td>
+                                    <td>@Convert.ToDecimal(OrderDetail["Amount"]).ToString("N2")</td>
+                                    <td>@Convert.ToDecimal(OrderDetail["TotalAmount"]).ToString("N2")</td>
+                                    <td>@OrderDetail["UserName"]</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-warning" asp-action="OrderDetailEdit" asp-controller="OrderDetail" asp-route-OrderDetailID="@OrderDetail["OrderDetailID"]">Edit</a>
+                                        <a class="btn btn-sm btn-danger" href="javascript:void(0);" onclick="confirmDelete('@OrderDetail["OrderDetailID"]')">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with ordered rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function confirmDelete(orderDetailID) {
+        if (confirm("Are you sure you want to delete this order detail?")) {
+            window.location.href = '@Url.Action("OrderDetailDelete", "OrderDetail")' + '?OrderDetailID=' + orderDetailID;
+        }
+    }
+
+    // Auto-hide alerts after 5 seconds
+    document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            var successAlert = document.getElementById('successAlert');
+            var errorAlert = document.getElementById('errorAlert');
+
+            if (successAlert) {
+                successAlert.classList.remove('show');
+                successAlert.classList.add('fade');
+            }
+
+            if (errorAlert) {
+                errorAlert.classList.remove('show');
+                errorAlert.classList.add('fade');
+            }
+        }, 5000); // 5000 milliseconds = 5 seconds
+    });
+</script>

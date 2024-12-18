@@ -1,0 +1,73 @@
+﻿@model Project_1.Models.OrderModel
+
+<div class="card">
+    <div class="card-body">
+        <!-- Dynamically change the title based on whether it's Add or Edit -->
+        <h5 class="card-title">@ViewBag.Action Order</h5>
+
+        <form asp-action="OrderSave" method="post" class="row g-3">
+            <!-- Hidden field to store OrderID (used for Edit case) -->
+            <input type="hidden" name="OrderID" asp-for="OrderID" />
+
+            <!-- Order Date Field -->
+            <div class="col-6">
+                <label asp-for="OrderDate" class="form-label">Order Date</label>
+                <input type="datetime-local" class="form-control" asp-for="OrderDate" placeholder="Select Order Date" />
+                <span asp-validation-for="OrderDate" class="text-danger"></span>
+            </div>
+
+            <!-- Customer Dropdown -->
+            <div class="col-6">
+                <label asp-for="CustomerID" class="form-label">Customer</label>
+                <select class="form-select" asp-for="CustomerID" asp-items="@(new SelectList(ViewBag.CustomerList, "CustomerID", "CustomerName"))">
+                    <option value="">Select Customer</option>
+                </select>
+                <span asp-validation-for="CustomerID" class="text-danger"></span>
+            </div>
+
+            <!-- Order Number Field -->
+            <div class="col-4">
+                <label asp-for="OrderNumber" class="form-label">Order Number</label>
+                <input type="number" class="form-control" asp-for="OrderNumber" placeholder="Enter Order Number" />
+                <span asp-validation-for="OrderNumber" class="text-danger"></span>
+            </div>
+
+            <!-- Payment Mode Field -->
+            <div class="col-4">
+                <label asp-for="PaymentMode" class="form-label">Payment Mode</label>
+                <input type="text" class="form-control" asp-for="PaymentMode" placeholder="Enter Payment Mode" />
+                <span asp-validation-for="PaymentMode" class="text-danger"></span>
+            </div>
+
+            <!-- Total Amount Field -->
+            <div class="col-4">
+                <label asp-for="TotalAmount" class="form-label">Total Amount</label>
+                <input type="number" step="0.01" class="form-control" asp-for="TotalAmount" placeholder="Enter Total Amount" />
+                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+
+            <!-- Shipping Address Field -->
+            <div class="col-6">
+                <label asp-for="ShippingAddress" class="form-label">Shipping Address</label>
+                <input type="text" rows="5" class="form-control" asp-for="ShippingAddress" placeholder="Enter Shipping Address" />
+                <span asp-validation-for="ShippingAddress" class="text-danger"></span>
+            </div>
+
+            <!-- User Dropdown -->
+            <div class="col-6">
+                <label asp-for="UserID" class="form-label">User</label>
+                <select class="form-select" asp-for="UserID" asp-items="@(new SelectList(ViewBag.userList, "UserID", "UserName"))">
+                    <option value="">Select User</option>
+                </select>
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+
+            <!-- Form Action Buttons -->
+            <div class="text-start">
+                <!-- Submit button's text will change based on the action (Add/Edit) -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@using System.Data;
+@model DataTable
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">User List</h5>
+                    <div class="d-flex justify-content-end gap-3">
+                        <a class="btn btn-primary" asp-controller="User" asp-action="AddUser">Add User</a>
+                        <a class="btn btn-primary" asp-controller="User" asp-action="ExportExcel">Export Excel</a>
+
+                    </div>
+
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th>UserID</th>
+                                <th>UserName</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>MobileNo</th>
+                                <th>Address</th>
+                                <th>IsActive</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (DataRow User in Model.Rows)
+                            {
+                                <tr>
+                                    <td>@User["UserID"]</td>
+                                    <td>@User["UserName"]</td>
+                                    <td>@User["Email"]</td>
+                                    <td>@User["Password"]</td>
+                                    <td>@User["MobileNo"]</td>
+                                    <td>@User["Address"]</td>
+                                    <td>@User["IsActive"]</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-warning" asp-action="UserEdit" asp-controller="User" asp-route-UserID="@User["UserID"]">Edit</a>
+                                        <a class="btn btn-sm btn-danger" asp-action="UserDelete" asp-controller="User" asp-route-UserID="@User["UserID"]">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

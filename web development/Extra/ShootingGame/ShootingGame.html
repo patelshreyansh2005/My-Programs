@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooting Game</title>
+    <!-- css -->
+    <link rel="stylesheet" href="ShootingGame.css">
+</head>
+
+<body id="body">
+    <!-- MENU -->
+    <img src="./img/cursor.png" alt="" class="cursorImg" id="cursorImg">
+    <div class="display">
+        <div class="gunandbullet">
+            <div class="bulletdiv" id="bulletdiv"></div>
+            <div class="changeGun">
+                <span>
+                    <img src="./img/pistol.png" alt="Pistol" id="gunImg">
+                </span>
+                <span class="changeGunIcon" id="changeGunButton">❯</span>
+            </div>
+        </div>
+        <div class="scoreboard" id="scoreboard">0 : 0</div>
+        <div class="timerdiv" id="timerdiv"></div>
+    </div>
+    <!---------->
+    <div class="imgdiv" id="imgdiv">
+        <img src="./img/thiefimg.png" alt="Click">
+    </div>
+    <!-- Audio -->
+    <audio src="./music/sxp_shotgun_rack_02-46334.mp3" id="shotgun"></audio>
+    <audio src="./music/load-gun-sound-effect-5-11003.mp3" id="loadgun"></audio>
+    <audio src="./music/9mm-pistol-shoot-short-reverb-7152.mp3" id="pistol"></audio>
+    <audio src="./music/battle-march-action-loop-6935.mp3" id="battlemarch"></audio>
+    <audio src="./music/blaster-2-81267.mp3" id="blaster"></audio>
+
+
+    <!-- java script -->
+    <script type="text/javascript" src="./ShootingGame.js"></script>
+</body>
+
+</html>

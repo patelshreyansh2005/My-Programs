@@ -1,0 +1,55 @@
+﻿@model ProductModel
+<form>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row mb-3">
+        <input type="hidden" asp-for="ProductId" />
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Product Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="ProductName">
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Product Price</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="ProductPrice">
+            <span asp-validation-for="ProductPrice" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Product Code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="ProductCode">
+            <span asp-validation-for="ProductCode" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputText" asp-for="Description">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">User ID</label>
+        <div class="col-sm-10">
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" asp-for="UserID">
+                <option selected>Select User</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <!--<input type="text" class="form-control" id="inputText">-->
+            <span asp-validation-for="UserID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary" asp-action="ProductSave">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

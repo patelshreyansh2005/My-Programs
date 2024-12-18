@@ -1,0 +1,53 @@
+﻿@using System.Data
+@model DataTable
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Order Detail List</h5>
+                    <div class="d-flex justify-content-end gap-3">
+                        <a class="btn btn-primary" asp-controller="OrderDetail" asp-action="AddOrderDetail">Add Order Detail</a>
+                        <a class="btn btn-primary" asp-controller="OrderDetail" asp-action="ExportExcel">Export Excel</a>
+                    </div>
+
+                    <!-- Table with stripped rows -->
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th>OrderDetailID</th>
+                                <th>OrderID</th>
+                                <th>ProductID</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                                <th>TotalAmount</th>
+                                <th>UserName</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (DataRow OrderDetail in Model.Rows)
+                            {
+                                <tr>
+                                    <td>@OrderDetail["OrderDetailID"]</td>
+                                    <td>@OrderDetail["OrderID"]</td>
+                                    <td>@OrderDetail["ProductID"]</td>
+                                    <td>@OrderDetail["Quantity"]</td>
+                                    <td>@OrderDetail["Amount"]</td>
+                                    <td>@OrderDetail["TotalAmount"]</td>
+                                    <td>@OrderDetail["UserName"]</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-warning" asp-action="OrderDetailEdit" asp-controller="OrderDetail" asp-route-OrderDetailID="@OrderDetail["OrderDetailID"]">Edit</a>
+                                        <a class="btn btn-sm btn-danger" asp-action="OrderDetailDelete" asp-controller="OrderDetail" asp-route-OrderDetailID="@OrderDetail["OrderDetailID"]">Delete</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

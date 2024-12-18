@@ -1,0 +1,348 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section dashboard">
+    <div class="row">
+
+        <!-- Main Stats Cards -->
+        <div class="col-md-12">
+            <div class="row g-4">
+
+                <!-- Total Products Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card info-card total-products-card shadow-lg border-primary">
+                        <a asp-controller="Product" asp-action="ProductList" class="card-link">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-primary text-white shadow-sm">
+                                    <i class="bi bi-box"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="card-title text-dark">Total Products</h6>
+                                    <h4 class="card-count text-dark">1,234</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Total Products Card -->
+                <!-- Total Orders Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card info-card total-orders-card shadow-lg border-success">
+                        <a asp-controller="Order" asp-action="OrderList" class="card-link">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-success text-white shadow-sm">
+                                    <i class="bi bi-cart"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="card-title text-dark">Total Orders</h6>
+                                    <h4 class="card-count text-dark">567</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Total Orders Card -->
+                <!-- Total Order Details Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card info-card total-order-details-card shadow-lg border-info">
+                        <a asp-controller="OrderDetail" asp-action="OrderDetailList" class="card-link">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-info text-white shadow-sm">
+                                    <i class="bi bi-clipboard"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="card-title text-dark">Total Order Details</h6>
+                                    <h4 class="card-count text-dark">1,890</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Total Order Details Card -->
+                <!-- Total Users Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card info-card total-users-card shadow-lg border-warning">
+                        <a asp-controller="User" asp-action="UserList" class="card-link">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-warning text-dark shadow-sm">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="card-title text-dark">Total Users</h6>
+                                    <h4 class="card-count text-dark">345</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Total Users Card -->
+                <!-- Total Customers Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card info-card total-customers-card shadow-lg border-danger">
+                        <a asp-controller="Customer" asp-action="CustomerList" class="card-link">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-danger text-white shadow-sm">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="card-title text-dark">Total Customers</h6>
+                                    <h4 class="card-count text-dark">1,245</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Total Customers Card -->
+                <!-- Total Bills Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card info-card total-bills-card shadow-lg border-secondary">
+                        <a asp-controller="Bill" asp-action="BillsList" class="card-link">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-secondary text-white shadow-sm">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="card-title text-dark">Total Bills</h6>
+                                    <h4 class="card-count text-dark">765</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Total Bills Card -->
+
+            </div><!-- End Row -->
+        </div><!-- End Main Stats Cards -->
+        <!-- Action Buttons Section -->
+        <div class="col-12 mt-4">
+            <div class="row g-4">
+
+                <!-- Add Product Card -->
+                <div class="col-md-4">
+                    <div class="card action-card add-product-card shadow-lg border-primary">
+                        <a asp-controller="Product" asp-action="AddProduct" class="card-link">
+                            <div class="card-body text-center">
+                                <div class="action-icon rounded-circle d-flex align-items-center justify-content-center mb-3 bg-light text-primary shadow-sm">
+                                    <i class="bi bi-box"></i>
+                                </div>
+                                <h5 class="action-title text-dark">Add Product</h5>
+                                <p class="action-description text-muted">Manage and add new products to your inventory.</p>
+                                <a asp-controller="Product" asp-action="AddProduct" class="btn btn-primary">Add Product</a>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Add Product Card -->
+                <!-- Add Order Card -->
+                <div class="col-md-4">
+                    <div class="card action-card add-order-card shadow-lg border-success">
+                        <a asp-controller="Order" asp-action="AddOrder" class="card-link">
+                            <div class="card-body text-center">
+                                <div class="action-icon rounded-circle d-flex align-items-center justify-content-center mb-3 bg-light text-success shadow-sm">
+                                    <i class="bi bi-cart"></i>
+                                </div>
+                                <h5 class="action-title text-dark">Add Order</h5>
+                                <p class="action-description text-muted">Create and manage new orders efficiently.</p>
+                                <a asp-controller="Order" asp-action="AddOrder" class="btn btn-secondary">Add Order</a>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Add Order Card -->
+                <!-- Add Order Detail Card -->
+                <div class="col-md-4">
+                    <div class="card action-card add-order-detail-card shadow-lg border-info">
+                        <a asp-controller="OrderDetail" asp-action="AddOrderDetail" class="card-link">
+                            <div class="card-body text-center">
+                                <div class="action-icon rounded-circle d-flex align-items-center justify-content-center mb-3 bg-light text-info shadow-sm">
+                                    <i class="bi bi-clipboard"></i>
+                                </div>
+                                <h5 class="action-title text-dark">Add Order Detail</h5>
+                                <p class="action-description text-muted">Detail and manage specific order information.</p>
+                                <a asp-controller="OrderDetail" asp-action="AddOrderDetail" class="btn btn-success">Add Order Detail</a>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Add Order Detail Card -->
+                <!-- Add User Card -->
+                <div class="col-md-4">
+                    <div class="card action-card add-user-card shadow-lg border-warning">
+                        <a asp-controller="User" asp-action="AddUser" class="card-link">
+                            <div class="card-body text-center">
+                                <div class="action-icon rounded-circle d-flex align-items-center justify-content-center mb-3 bg-light text-warning shadow-sm">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <h5 class="action-title text-dark">Add User</h5>
+                                <p class="action-description text-muted">Register new users into the system.</p>
+                                <a asp-controller="User" asp-action="AddUser" class="btn btn-warning">Add User</a>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Add User Card -->
+                <!-- Add Customer Card -->
+                <div class="col-md-4">
+                    <div class="card action-card add-customer-card shadow-lg border-info">
+                        <a asp-controller="Customer" asp-action="AddCustomer" class="card-link">
+                            <div class="card-body text-center">
+                                <div class="action-icon rounded-circle d-flex align-items-center justify-content-center mb-3 bg-light text-info shadow-sm">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <h5 class="action-title text-dark">Add Customer</h5>
+                                <p class="action-description text-muted">Add new customers to your database.</p>
+                                <a asp-controller="Customer" asp-action="AddCustomer" class="btn btn-info">Add Customer</a>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Add Customer Card -->
+                <!-- Add Bill Card -->
+                <div class="col-md-4">
+                    <div class="card action-card add-bill-card shadow-lg border-secondary">
+                        <a asp-controller="Bill" asp-action="AddBill" class="card-link">
+                            <div class="card-body text-center">
+                                <div class="action-icon rounded-circle d-flex align-items-center justify-content-center mb-3 bg-light text-secondary shadow-sm">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <h5 class="action-title text-dark">Add Bill</h5>
+                                <p class="action-description text-muted">Generate and manage new bills.</p>
+                                <a asp-controller="Bill" asp-action="AddBill" class="btn btn-dark">Add Bill</a>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- End Add Bill Card -->
+
+            </div><!-- End Row -->
+        </div><!-- End Action Buttons Section -->
+        <!-- Additional Enhancements Section -->
+        <div class="col-12 mt-4">
+            <div class="row g-4">
+
+                <!-- Performance Metrics Card -->
+                <div class="col-md-6">
+                    <div class="card performance-metrics-card shadow-lg border-primary">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Performance Metrics</h5>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="metric-title">Average Order Value</h6>
+                                    <p class="metric-value">$45.78</p>
+                                </div>
+                                <div>
+                                    <h6 class="metric-title">Customer Satisfaction</h6>
+                                    <p class="metric-value">87%</p>
+                                </div>
+                            </div>
+                            <!-- Add a bar chart here -->
+                            <canvas id="performanceChart" height="200"></canvas>
+                        </div>
+                    </div>
+                </div><!-- End Performance Metrics Card -->
+                <!-- Upcoming Events Card -->
+                <div class="col-md-6">
+                    <div class="card upcoming-events-card shadow-lg border-info">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Upcoming Events</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Product Launch</span>
+                                    <span class="badge bg-primary">Next Week</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Quarterly Review</span>
+                                    <span class="badge bg-success">In 2 Weeks</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Customer Feedback Session</span>
+                                    <span class="badge bg-info">1 Month</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- End Upcoming Events Card -->
+
+            </div><!-- End Row -->
+        </div><!-- End Additional Enhancements Section -->
+        <!-- New Additional Components Section -->
+        <div class="col-12 mt-4">
+            <div class="row g-4">
+
+                <!-- Recent Activities Log -->
+                <div class="col-md-6">
+                    <div class="card recent-activities-card shadow-lg border-success">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Recent Activities</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Added New Product - <strong>Product A</strong></span>
+                                    <span class="text-muted">5 minutes ago</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Processed Order #1234</span>
+                                    <span class="text-muted">30 minutes ago</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Updated Customer Info - <strong>John Doe</strong></span>
+                                    <span class="text-muted">1 hour ago</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- End Recent Activities Log -->
+                <!-- Top Products -->
+                <div class="col-md-6">
+                    <div class="card top-products-card shadow-lg border-primary">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Top Products</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Product A</span>
+                                    <span class="badge bg-success">200 Sold</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Product B</span>
+                                    <span class="badge bg-success">150 Sold</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Product C</span>
+                                    <span class="badge bg-success">120 Sold</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- End Top Products -->
+
+            </div><!-- End Row -->
+        </div><!-- End New Additional Components Section -->
+
+    </div><!-- End Row -->
+</section><!-- End Dashboard -->
+@section Scripts {
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Example chart data and configuration
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product A', 'Product B', 'Product C', 'Product D'],
+                datasets: [{
+                    label: 'Sales',
+                    data: [12, 19, 3, 5],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+}

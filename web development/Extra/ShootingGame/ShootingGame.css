@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: none;
+    -webkit-user-drag: none;
+}
+
+body {
+    background-image: url(./img/bg1.avif);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    padding: 0 1px 0 1px;
+}
+
+.cursorImg{
+    height: 40px;
+    position: absolute;
+}
+
+.imgdiv img {
+    height: 100px;
+}
+
+.imgdiv {
+    position: absolute;
+}
+
+.display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scoreboard {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    height: 50px;
+    width: 200px;
+    border-radius: 0% 0% 50px 50px;
+    background-color: rgba(0, 0, 0, 0.65);
+    text-align: center;
+    line-height: 50px;
+    font-size: 2em;
+    color: white;
+}
+
+.bulletdiv {
+    display: inline-flex;
+    /* justify-content: space-around; */
+    height: 50px;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0.65);
+    /* border-radius: 0% 0% 50px 0; */
+}
+
+.bulletdiv img {
+    display: inline;
+    height: 40px;
+    padding: 0;
+    margin: 0 0.20em 0 0.20em;
+}
+
+.bullet-display {
+    display: flex;
+    align-items: center;
+    color: rgb(220, 220, 220);
+    padding: 5px 30px;
+}
+
+.bullet-icon {
+    font-size: 24px;
+    transform: rotateZ(30deg);
+}
+
+.bullet-count {
+    font-size: 1.8rem;
+    margin-left: 10px;
+}
+
+
+.gunandbullet {
+    display: inline-flex;
+    float: left;
+}
+
+.changeGun {
+    height: 50px;
+    width: 100px;
+    margin-left: 1em;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.changeGunIcon {
+    height: 100%;
+    width: 30%;
+    float: right;
+    font-size: xx-large;
+    color: rgb(220, 220, 220);
+    text-align: center;
+}
+
+.changeGunIcon:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#gunImg {
+    width: 70%;
+}
+
+.numberOfBullets {
+    color: white;
+}
+
+.timerdiv {
+    display: inline-block;
+    height: 50px;
+    width: 125px;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 0 0 0 50px;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+}

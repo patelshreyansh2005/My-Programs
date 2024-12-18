@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>code.com</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            width: 300px;
+        }
+
+        .b {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            display: flex;
+
+        }
+
+        body div {
+            margin-left: 200%;
+
+        }
+
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ani {
+            position: relative;
+            height: 50px;
+            width: 300px;
+            margin: 2% auto 0;
+            background: linear-gradient(0deg, black, rgb(79, 79, 79));
+        }
+
+        .aa::before,
+        .aa::after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(45deg, red, rgb(255, 111, 0), rgb(255, 247, 0), rgb(174, 255, 0), rgb(4, 255, 0), rgb(0, 255, 213), rgb(0, 213, 255), rgb(0, 8, 255), rgb(208, 0, 255), rgb(255, 0, 0));
+            background-size: 400%;
+            left: -3px;
+            top: -3px;
+            width: calc(100% + 5px);
+            height: calc(100% + 5px);
+            animation: asd 20s linear infinite;
+            z-index: -1;
+        }
+
+        .aa::after {
+            filter: blur(10px);
+        }
+
+        @keyframes asd {
+            0% {
+                background-position: 0, 0;
+            }
+
+            50% {
+                background-position: 400%, 0;
+            }
+
+            100% {
+                background-position: 0, 0;
+            }
+        }
+
+        .ani:hover {
+            color: black;
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div><br>
+        <a href="https://www.youtube.com/watch?v=aqvDTCpNRek&list=PLu0W_9lII9agICnT8t4iYVSZ3eykIAOME" target="_blank"
+            class="ani aa b">python</a><br>
+        <a href="https://www.youtube.com/watch?v=7Dh73z3icd8&list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR" target="_blank"
+            class="ani aa b">c</a><br>
+        <a href="https://www.youtube.com/watch?v=j8nAHeVKL08&list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL" target="_blank"
+            class="ani aa b">c++</a><br>
+
+        <a href="https://www.youtube.com/watch?v=cvvwkgp4HBg&list=PLu0W_9lII9ajyk081To1Cbt2eI5913SsL" target="_blank"
+            class="ani aa b">java script</a><br>
+        <a href="https://www.youtube.com/watch?v=6mbwJ2xhgzM&list=PLu0W_9lII9agiCUZYRsvtGTXdxkzPyItg" target="_blank"
+            class="ani aa b">web devlopment</a><br>
+        <a href="https://www.youtube.com/watch?v=ntLJmHOJ0ME&list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q" target="_blank"
+            class="ani aa b">java</a><br>
+        <a href="https://www.youtube.com/watch?v=_jOqYe0eFqY&list=PL5e68lK9hEzcZLltZrc3NDlKWS3XygchY" target="_blank"
+            class="ani aa b">animation</a><br>
+    </div>
+</body>
+
+</html>

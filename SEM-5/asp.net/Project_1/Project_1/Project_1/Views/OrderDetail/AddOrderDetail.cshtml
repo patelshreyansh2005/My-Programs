@@ -1,0 +1,58 @@
+﻿@model Project_1.Models.OrderDetailModel
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@ViewBag.FormTitle</h5>
+
+        <form asp-action="OrderDetailSave" method="post" class="row g-3">
+            <input type="hidden" name="OrderDetailID" asp-for="OrderDetailID" />
+
+            <div class="col-md-6">
+                <label asp-for="OrderID" class="form-label">Order</label>
+                <select class="form-select" asp-for="OrderID" asp-items="@(new SelectList(ViewBag.OrderList, "OrderID", "OrderNumber"))">
+                    <option value="">Select Order</option>
+                </select>
+                <span asp-validation-for="OrderID" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="ProductID" class="form-label">Product</label>
+                <select class="form-select" asp-for="ProductID" asp-items="@(new SelectList(ViewBag.ProductList, "ProductID", "ProductName"))">
+                    <option value="">Select Product</option>
+                </select>
+                <span asp-validation-for="ProductID" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Quantity" class="form-label">Quantity</label>
+                <input type="number" id="Qty" class="form-control"  asp-for="Quantity" placeholder="Enter Quantity" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Amount" class="form-label">Amount</label>
+                <input type="number" id="amt" step="0.01" class="form-control" asp-for="Amount" placeholder="Enter Amount" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="TotalAmount" class="form-label">Total Amount</label>
+                <input type="number" id="tamt" step="0.01" class="form-control" asp-for="TotalAmount" readonly placeholder="Enter Total Amount" />
+                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="UserID" class="form-label">User</label>
+                <select class="form-select" asp-for="UserID" asp-items="@(new SelectList(ViewBag.userList, "UserID", "UserName"))">
+                    <option value="">Select User</option>
+                </select>
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-start gap-2">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>

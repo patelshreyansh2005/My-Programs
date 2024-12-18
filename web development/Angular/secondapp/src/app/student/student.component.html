@@ -1,0 +1,14 @@
+<input class="form-control m-2 w-50 d-inline" type="text" [(ngModel)]="tempStudent" />
+<button class="btn btn-primary" (click)="addStudent()" *ngIf="index == -1">Add</button>
+<button class="btn btn-warning" (click)="editStudent()" *ngIf="index > -1">Edit</button>
+<table class="">
+    <tr *ngFor="let s of students;let i = index">
+        <td>{{s}}</td>
+        <td>
+            <button class="btn btn-warning" (click)="editButton(i)">Edit</button>
+        </td>
+        <td>
+            <button class="btn btn-danger" (click)="deleteButton(i)">Delete</button>
+        </td>
+    </tr>
+</table>
